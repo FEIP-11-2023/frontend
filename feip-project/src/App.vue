@@ -17,7 +17,7 @@ import MakeOrder from './components/BasketPage/MakeOrder.vue';
 
     <Header />
 
-<!-- <MainPage /> -->
+<MainPage />
 
 <!-- <CardProduct /> -->
 
@@ -30,7 +30,7 @@ import MakeOrder from './components/BasketPage/MakeOrder.vue';
 <!-- <PlugPage /> -->
 
 <!-- <Page404 /> -->
-<ProductPage />
+<!-- <ProductPage /> -->
 
 <!-- <BasketPage /> -->
 

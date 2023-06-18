@@ -11,7 +11,7 @@ const product = {
     img: 'card_img',
     size: [42, 44, 46, 50, 52],
     color: ['#FFFFFF', '#CDCFD6', '#616575', '#323540'],
-    count: 1
+    max_count: 10
 }
 
 const product_ = reactive({
@@ -100,8 +100,7 @@ const product_ = reactive({
                     {{ product.price }}
                 </div>
                 <div class="product__count">
-                    <!-- сделать нормальный счётчик -->
-                    {{ product.count }}
+                    <input type="number" :max="product.max_count" min="1" id="count" name="count" placeholder="1">
                 </div>
                 <div class="product__button">
                     <Button>
@@ -190,7 +189,7 @@ const product_ = reactive({
     color: #323540;
 }
 
-.product__count {
+.product__count input {
     margin-right: 1rem;
     min-width: 120px;
     height: 40px;
