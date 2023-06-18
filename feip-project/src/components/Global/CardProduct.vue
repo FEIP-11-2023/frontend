@@ -25,17 +25,15 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
 
 
     <div class="card-product d-flex flex-column p-1">
-        <div class="card-product__label">
-            {{ products.label }}
+        <div class="card-product__label text-uppercase">
+            <slot name="label"></slot>
         </div>
-        <img class="card-product__img mb-3"
-             :src="`/examples/${products.img}.jpg`"
-             :alt="products.img">
+        <slot name="img"></slot>
         <div class="card-product__title">
-            {{ products.title }}
+            <slot name="title"></slot>
         </div>
         <div class="card-product__price mb-1">
-            {{ products.price }}
+            <slot name="price"></slot>
         </div>
         <div class="card-product__add">
             <div class="card-product__size d-flex">
@@ -71,8 +69,7 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
 <style>
 .card-product {
     position: relative;
-    max-width: 320px;
-    /* max-height: 626px; */
+    max-width: 320px; 
 }
 
 .card-product:hover {
@@ -80,41 +77,18 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
     box-shadow: 0px 0px 20px -4px rgba(0, 0, 0, 0.2);
 }
 
-.card-product:hover .card-product__add,
-.card-product__heart {
+.card-product:hover .card-product__add {
     visibility: visible;
 }
 
 .card-product__label {
-    width: 4rem;
+    padding: 0 0.9rem;
     height: 1.5rem;
     background-color: #CDCFD6;
     text-align: center;
     position: absolute;
     top: 1.5rem;
     z-index: 1;
-}
-
-.card-product__heart {
-    position: absolute;
-    right: 1.5rem;
-    top: 1.5rem;
-    cursor: pointer;
-    visibility: hidden;
-}
-
-.card-product__heart input {
-    position: absolute;
-    height: 26px;
-    width: 28px;
-    margin: 0;
-    cursor: pointer;
-    z-index: 2;
-    opacity: 0;
-}
-
-.card-product__heart input[checkbox]:checked {
-    background-color: var(#616575);
 }
 
 .card-product__img {
@@ -143,6 +117,12 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
 .card-product__add {
    visibility: hidden;
     z-index: 2;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background-color: white;
+    left: 0;
+    box-shadow: 0px 0px 20px -4px rgba(0, 0, 0, 0.2);
 }
 
 .card-product__size {

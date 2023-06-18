@@ -74,7 +74,4 @@ export default {
     margin-bottom: 40px;
 }
 
-.page-404__button {
-
-}
 </style>

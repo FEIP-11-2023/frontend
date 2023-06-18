@@ -11,9 +11,6 @@ import MainInstagram from "./MainInstagram.vue";
 
 <template>
 
-<!-- передавать инфу между компонентами
-сделать два блока на главной странице -->
-
   <!-- <Header /> -->
 
   <div class="container-xxl">

@@ -13,7 +13,7 @@ export default {
 
 <template>
     <div class="catalog-search d-flex justify-content-start my-auto">
-        <div class="catalog d-flex justify-content-center border">
+        <div class="catalog-down-header d-flex justify-content-center border">
             <div
             :class="{change: isActive}"
             v-on:click="isActive=!isActive"
@@ -88,7 +88,7 @@ export default {
     border-radius: 0px;
 }
 
-.catalog {
+.catalog-down-header {
     background: #616575;
     color: white;
     text-decoration: underline;

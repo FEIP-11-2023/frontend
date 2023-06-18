@@ -9,6 +9,8 @@ import Page404 from './components/PlugPages/Page404.vue';
 import ProductPage from './components/ProductPage/ProductPage.vue';
 import BasketPage from './components/BasketPage/BasketPAGE.vue'
 import MakeOrder from './components/BasketPage/MakeOrder.vue';
+import CatalogPage from './components/CatalogPage/CatalogPage.vue';
+
 
 
 </script>
@@ -17,7 +19,9 @@ import MakeOrder from './components/BasketPage/MakeOrder.vue';
 
     <Header />
 
-<MainPage />
+<!-- <MainPage /> -->
+
+<CatalogPage/>
 
 <!-- <CardProduct /> -->
 

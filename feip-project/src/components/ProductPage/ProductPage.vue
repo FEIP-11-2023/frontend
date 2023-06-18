@@ -179,10 +179,6 @@ const product_ = reactive({
     /*accent-color: #515562; */
 }
 
-.product__buy {
-
-}
-
 .product__price {
     margin-right: 1.5rem;
     font-size: 24px;
@@ -198,10 +194,6 @@ const product_ = reactive({
     text-align: center;
     color: #515562;
     font-size: 16px;
-
-}
-
-.product__button {
 
 }
 
@@ -232,7 +224,6 @@ const product_ = reactive({
     height: 100%;
     border-radius: 50%;
     border: 2px solid #616575;
-
 }
 
 </style>
