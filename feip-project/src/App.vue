@@ -19,6 +19,8 @@ import MakeOrder from './components/BasketPage/MakeOrder.vue';
 
 <!-- <MainPage /> -->
 
+<!-- <CardProduct /> -->
+
 <!-- <InfoPage /> -->
 
 <!-- <SuccessOrderPage /> -->
@@ -28,11 +30,11 @@ import MakeOrder from './components/BasketPage/MakeOrder.vue';
 <!-- <PlugPage /> -->
 
 <!-- <Page404 /> -->
-<!-- <ProductPage /> -->
+<ProductPage />
 
 <!-- <BasketPage /> -->
 
-<MakeOrder />
+<!-- <MakeOrder /> -->
 
 <Footer />
 </template>

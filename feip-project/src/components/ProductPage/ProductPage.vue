@@ -1,4 +1,5 @@
 <script setup>
+import { reactive } from "vue";
 import Button from "../Global/Button.vue"
 
 const product = {
@@ -12,6 +13,12 @@ const product = {
     color: ['#FFFFFF', '#CDCFD6', '#616575', '#323540'],
     count: 1
 }
+
+const product_ = reactive({
+    size: '',
+    color: '',
+    count: null
+})
 
 
 
@@ -76,10 +83,16 @@ const product = {
                 <p class="text-uppercase mb-4" style="color: #323540">
                     Цвет:
                 </p>
-                <div class="product__color-radio">
+                <div class="product__color-radio d-flex">
                     <!-- доработать с цветами -->
-                    <input type="radio" name="color" id="white" value="white" checked>
+                    <div class="me-2 color-item"
+                    v-for="item in product.color"
+                    :key="item"
+                    :style="`background-color: ${item}`">
+                        <input type="radio" name="color" id="white" value="white" checked>
                     <label for="white"><span class="white"></span></label>
+                    </div>
+                    
                 </div>
             </div>
             <div class="product__buy d-flex">
@@ -157,10 +170,6 @@ const product = {
 }
 
 
-.product__size-text {
-
-}
-
 .product__color {
     margin-bottom: 27px;
 }
@@ -168,7 +177,7 @@ const product = {
 .product__color-radio input {
     width: 16px;
     height: 16px;
-    background-color: #515562;
+    /*accent-color: #515562; */
 }
 
 .product__buy {
@@ -194,6 +203,36 @@ const product = {
 }
 
 .product__button {
+
+}
+
+
+.color-item {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    text-align: center;
+    color: #616575;
+    padding: 0;
+    border: 1px solid #616575;
+}
+
+.color-item input {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+.color-item input:checked + label {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #616575;
 
 }
 

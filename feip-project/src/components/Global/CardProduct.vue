@@ -1,5 +1,6 @@
 <script setup>
 import Button from './Button.vue';
+import { reactive } from 'vue';
 
 const products = {
     title: 'Water-repellent wool twill trench coat',
@@ -7,6 +8,14 @@ const products = {
     label: 'NEW',
     img: 'card_img'
 }
+
+const product_ = reactive({
+    name: '',
+    price: '',
+    size: ''
+})
+
+const size = ['XS', 'S', 'M', 'L', 'XL']
 
 </script>
 
@@ -29,32 +38,25 @@ const products = {
             {{ products.price }}
         </div>
         <div class="card-product__add">
-            <div class="card-product__size">
-                <p>
+            <div class="card-product__size d-flex">
+                <p class="card-product__size-title w-100">
                     Выберите размер:
                 </p>
-                <form class="card-product__size-radio">
-                    <div class="form-check">
+                <form class="card-product__size-radio d-flex w-100 justify-content-between my-auto">
+                    <div class="size-item"
+                    v-for="item in size"
+                    :key="item">
                         <input class="size-item__input"
+                        v-model="product_.size"
+                        :value="item"
                            type="radio"
-                           name="xs"
-                           id="xs">
+                           name="item"
+                           id="item">
                     <label class="size-item__label m-0 p-0"
-                           for="xs">
-                        XS
+                           for="item">
+                        {{ item }}
                     </label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="size-item__input"
-                           type="radio"
-                           name="s"
-                           id="s">
-                    <label class="size-item__label m-0 p-0"
-                           for="s">
-                        S
-                    </label>
-                    </div>
+                </div>
                     
 
                 </form>
@@ -135,11 +137,12 @@ const products = {
 .card-product__size p {
     text-decoration-line: underline;
     color: #616575;
+    font-size: 14px;
 }
 
 .card-product__add {
    visibility: hidden;
-    z-index: 0;
+    z-index: 2;
 }
 
 .card-product__size {
@@ -168,6 +171,7 @@ const products = {
 .size-item input:checked + label {
     background-color: #616575;
     color: #CDCFD6;
+    width: 100%;
 }
 
 </style>
