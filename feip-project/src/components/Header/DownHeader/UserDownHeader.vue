@@ -1,4 +1,14 @@
 <script setup>
+import { ref } from "vue";
+import ModalHeader from "./ModalHeader.vue";
+
+let modalVisible= ref(false);
+
+function showModal(){
+ modalVisible.value = true;
+}
+
+
 
 const userNav = [
   {name: 'Вход/Регистрация', 
@@ -25,7 +35,6 @@ const userNav = [
             <div class="user-nav__name">
               {{ element.name }}
             </div>
-          
           </a>
       
           </div>

@@ -10,6 +10,8 @@ import ProductPage from './components/ProductPage/ProductPage.vue';
 import BasketPage from './components/BasketPage/BasketPAGE.vue'
 import MakeOrder from './components/BasketPage/MakeOrder.vue';
 import CatalogPage from './components/CatalogPage/CatalogPage.vue';
+import LoginPage from './components/LoginPage/LoginPage.vue';
+import RegistrationPage from './components/LoginPage/RegistrationPage.vue';
 
 
 
@@ -21,7 +23,11 @@ import CatalogPage from './components/CatalogPage/CatalogPage.vue';
 
 <!-- <MainPage /> -->
 
-<CatalogPage/>
+<!-- <LoginPage /> -->
+
+<RegistrationPage />
+
+<!-- <CatalogPage/> -->
 
 <!-- <CardProduct /> -->
 
@@ -40,7 +46,7 @@ import CatalogPage from './components/CatalogPage/CatalogPage.vue';
 
 <!-- <MakeOrder /> -->
 
-<Footer />
+<!-- <Footer /> -->
 </template>
 
 <style>

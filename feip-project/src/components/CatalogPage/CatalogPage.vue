@@ -1,12 +1,6 @@
 <script setup>
 import CardProduct from '../Global/CardProduct.vue';
-
-// const product = {
-//     title: 'Water-repellent wool twill trench coat',
-//     price: '17 200 ₽',
-//     label: 'NEW',
-//     img: 'card_img'
-// };
+import Paginator from 'primevue/paginator';
 
 // const product = {
 //     title: 'Water-repellent wool twill trench coat',
@@ -77,8 +71,24 @@ let products = [
     price: '17 200 ₽',
     label: 'NEW',
     img: 'card_img'
+},
+{
+    title: 'Шапка',
+    price: '1 700 ₽',
+    label: 'Акция',
+    img: 'card_img'
+},
+{
+    title: 'Зимние сапоги',
+    price: '25 000 ₽',
+    label: 'акция',
+    img: 'card_img'
 }
 ];
+
+const sort = [
+    'сортировать', 'по цене', 'по названию', 'акции', 'новинки' 
+]
 
 
 
@@ -87,10 +97,6 @@ let products = [
 <template>
   <div class="catalog container-xxl w-100">
 
-    <div>
-        хлебные крошки
-    </div>
-
     <div class="catalog-header d-flex justify-content-between">
         
 
@@ -98,7 +104,14 @@ let products = [
             каталог
         </div>
         <div class="catalog-header__sort">
-            сортировать
+            <select class="catalog-header__sort-select" aria-label="product-size">
+                <option v-for="item in sort"
+                :key="item"
+                :value="item"
+                >
+                    {{ item }}
+                </option>
+              </select>
         </div>
     </div>
 
@@ -124,18 +137,18 @@ let products = [
         </div>
     </div>
 
+    
+
   </div>
 </template>
 
 <style>
-.catalog {
-
-}
-
 .catalog-header {
     padding-top: 2rem;
     padding-bottom: 2rem;
     width: 100%;
+    border-bottom: 1px solid #CDCFD6;
+    margin-bottom: 3rem;
 }
 
 .catalog-header__title {
@@ -143,8 +156,15 @@ let products = [
     color: #515562;
 }
 
-.catalog-header__sort {
-
+.catalog-header__sort-select {
+    min-width: 150px;
+    height: 40px;
+    border: 1px solid #CDCFD6;
+    border-radius: 0;
+    text-align: center;
+    color: #515562;
+    font-size: 16px;
+    text-decoration-line: underline;
 }
 
 .catalog-main {

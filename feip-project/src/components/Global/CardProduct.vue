@@ -2,13 +2,6 @@
 import Button from './Button.vue';
 import { reactive } from 'vue';
 
-const products = {
-    title: 'Water-repellent wool twill trench coat',
-    price: '17 200 ₽',
-    label: 'NEW',
-    img: 'card_img'
-}
-
 const product_ = reactive({
     name: '',
     price: '',
@@ -20,10 +13,6 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
 </script>
 
 <template>
-    <!-- доебашить радиокнопки с размерами
-    доебашить кнопочку с избранным -->
-
-
     <div class="card-product d-flex flex-column p-1">
         <div class="card-product__label text-uppercase">
             <slot name="label"></slot>
@@ -32,10 +21,10 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
         <div class="card-product__title">
             <slot name="title"></slot>
         </div>
-        <div class="card-product__price mb-1">
+        <div class="card-product__price mb-1 font-weight-bold">
             <slot name="price"></slot>
         </div>
-        <div class="card-product__add">
+        <!-- <div class="card-product__add">
             <div class="card-product__size d-flex">
                 <p class="card-product__size-title w-100">
                     Выберите размер:
@@ -62,7 +51,7 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
             <Button class="w-100 mb-1">
                 В КОРЗИНУ
             </Button>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -70,6 +59,7 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
 .card-product {
     position: relative;
     max-width: 320px; 
+    margin-bottom: 2rem;
 }
 
 .card-product:hover {
