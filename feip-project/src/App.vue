@@ -23,9 +23,9 @@ import RegistrationPage from './components/LoginPage/RegistrationPage.vue';
 
 <!-- <MainPage /> -->
 
-<!-- <LoginPage /> -->
+<LoginPage />
 
-<RegistrationPage />
+<!-- <RegistrationPage /> -->
 
 <!-- <CatalogPage/> -->
 

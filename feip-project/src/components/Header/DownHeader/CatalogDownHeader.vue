@@ -1,4 +1,6 @@
-<script >
+<script>
+// import NavCatalog from './NavCatalog.vue';
+
 
 export default {
     name: 'burger',
@@ -23,6 +25,10 @@ export default {
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
+
+            <div class="catalog-nav" :class="{show: isActive}">
+                <NavCatalog />
+              </div>
 
             <a class="link-catalog d-flex align-items-center ">
                 КАТАЛОГ
@@ -124,4 +130,34 @@ export default {
     -webkit-transform: rotate(45deg) translate(-3px, -3px);
     transform: rotate(45deg) translate(-4px, -4px);
 }
+
+/* пример работы */
+.catalog-nav {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    width: 100%;
+    box-shadow: 0px 8px 0px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 4.5rem;
+    left: 0%;
+}
+
+/* Links inside the dropdown */
+.catalog-nav__link {
+    color: #515562;
+    margin-bottom: 2rem;
+    font-size: 18px;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.catalog-nav__link:hover
+ {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.show {display:block;}
+
 </style>

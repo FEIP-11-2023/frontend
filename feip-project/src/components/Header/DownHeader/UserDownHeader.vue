@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import ModalHeader from "./ModalHeader.vue";
 
 let modalVisible= ref(false);
 

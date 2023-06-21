@@ -1,6 +1,6 @@
 import LoginPage from './LoginPage.vue';
 import RegistrationPage from './RegistrationPage.vue';
-import LayoutLoginPage from './LayotLoginPage.vue';
+import LayoutLoginPage from './LayoutLoginPage.vue';
 
 const components = [
     {name: 'LoginPage', component: LoginPage},
