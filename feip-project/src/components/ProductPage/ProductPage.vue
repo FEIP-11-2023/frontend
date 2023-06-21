@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from "vue";
-import Button from "../Global/Button.vue"
+import Button from "../Global/Button.vue";
 
 const product = {
     name: 'Жакет Weekend Max Mara ONDINA',
@@ -8,7 +8,7 @@ const product = {
     description: "Жакет с поясом\n - Длинный двубортный плащ с поясом;\n Кокетка на спине - Застёжка на 3 ряда пуговиц; 2 внешних кармана; Регулируемые паты на рукавах; сзади высокая встречная складка; Длина: 123,6 см",
     structure: 'Основная ткань: 100% Полиэстер; Пояс: 100% Полиэстер; Подкл: 100% Полиэстер',
     price: '6 000 ₽',
-    img: 'card_img',
+    img: ['card_img', 'card_img', 'mountains', 'card_img'],
     size: [42, 44, 46, 50, 52],
     color: ['#FFFFFF', '#CDCFD6', '#616575', '#323540'],
     max_count: 10
@@ -26,14 +26,19 @@ const product_ = reactive({
 
 <template>
   <div class="container-xxl ">
-    <div class="">
-        хлебные крошки
-    </div>
 
     <div class="product d-flex">
         <div class="product__photo">
             <!-- сделать слайдер -->
-            <img :src="`/examples/${product.img}.jpg`" :alt="product.img">
+            <Slider>
+                <swiper-slide v-for="img in product.img"
+                :key="img">
+                <img :src="`/examples/${img}.jpg`" :alt="img"/>
+            </swiper-slide>
+                
+            </Slider>
+            
+            <!-- <img :src="`/examples/${product.img}.jpg`" :alt="product.img"> -->
         </div>
     
         <div class="product__info d-flex flex-column">

@@ -23,7 +23,7 @@ import RegistrationPage from './components/LoginPage/RegistrationPage.vue';
 
 <!-- <MainPage /> -->
 
-<LoginPage />
+<!-- <LoginPage /> -->
 
 <!-- <RegistrationPage /> -->
 
@@ -46,7 +46,7 @@ import RegistrationPage from './components/LoginPage/RegistrationPage.vue';
 
 <!-- <MakeOrder /> -->
 
-<!-- <Footer /> -->
+<Footer />
 </template>
 
 <style>
