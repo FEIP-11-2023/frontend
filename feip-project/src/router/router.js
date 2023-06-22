@@ -35,29 +35,3 @@ const router = createRouter({
 
 
 export default router;
-
-
-// import Vue from 'vue';
-// import Router from 'vue-router';
-
-// import CatalogPage from '../components/CatalogPage/CatalogPage.vue'
-// import BasketPage from '../components/BasketPage/BasketPage.vue'
-
-// Vue.use(Router);
-
-// let router = new Router({
-//     routes: [
-//         {
-//             path: '/',
-//             name: 'catalog',
-//             component: CatalogPage
-//         },
-//         {
-//             path: '/cart',
-//             name: 'cart',
-//             component: BasketPage
-//         }
-//     ]
-// })
-
-// export default router;

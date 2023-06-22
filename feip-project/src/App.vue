@@ -20,37 +20,8 @@ import { RouterView, RouterLink } from 'vue-router';
 <template>
 
     <Header />
-    <router-view>
-        
-    </router-view>
+    <router-view/>
     
-
-<!-- <MainPage /> -->
-
-<!-- <LoginPage /> -->
-
-<!-- <RegistrationPage /> -->
-
-<!-- <CatalogPage/> -->
-
-<!-- <CardProduct /> -->
-
-<!-- <InfoPage /> -->
-
-<!-- <SuccessOrderPage /> -->
-
-<!-- <NotFoundPage /> -->
-
-<!-- <PlugPage /> -->
-
-<!-- <Page404 /> -->
-<!-- <ProductPage /> -->
-
-<!-- <BasketPage /> -->
-
-<!-- <MakeOrder /> -->
-
-<!-- <Footer /> -->
 </template>
 
 <style>

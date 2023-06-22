@@ -38,10 +38,10 @@ const res = {
 
   <div class="basket-page container-xxl">
     <div class="basket-page__header d-flex">
-        <a href="/" class="basket-page__link my-auto">
+        <router-link :to="{path: 'catalog'}" class="basket-page__link my-auto">
             <img src="../../assets/bread-crumbs/back-arrow.svg" alt="">
             Вернуться в каталог
-        </a>
+        </router-link>
         <p class="basket-page__title text-uppercase">
             корзина
         </p>
@@ -110,6 +110,7 @@ const res = {
 .basket-page__link:hover {
     opacity: 0.5;
     color: #616575;
+    cursor: pointer;
 }
 
 .basket-page__title {

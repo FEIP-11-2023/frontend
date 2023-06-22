@@ -13,7 +13,7 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
 </script>
 
 <template>
-    <div class="card-product d-flex flex-column p-1">
+    <a href="/product" class="card-product d-flex flex-column p-1" style="z-index: 1">
         <div class="card-product__label text-uppercase">
             <slot name="label"></slot>
         </div>
@@ -52,7 +52,7 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
                 В КОРЗИНУ
             </Button>
         </div> -->
-    </div>
+    </a>
 </template>
 
 <style>
@@ -60,6 +60,7 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
     position: relative;
     max-width: 320px; 
     margin-bottom: 2rem;
+    text-decoration-line: none;
 }
 
 .card-product:hover {
@@ -79,6 +80,7 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
     position: absolute;
     top: 1.5rem;
     z-index: 1;
+    color: #515562;
 }
 
 .card-product__img {

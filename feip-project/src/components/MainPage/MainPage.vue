@@ -18,7 +18,7 @@ import MainInstagram from "./MainInstagram.vue";
 
     <MainCatalog />
 
-    <NewArrival />
+    <!-- <NewArrival /> -->
 
     <AboutCompany />
 

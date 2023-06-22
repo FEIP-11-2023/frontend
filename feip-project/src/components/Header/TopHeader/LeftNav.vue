@@ -4,7 +4,7 @@ const nav = [
   {name: 'Контакты',
    href: '/'},
    {name: 'О нас',
-   href: '/'},
+   href: '/info'},
    {name: 'Доставка',
    href: '/'}
 ]

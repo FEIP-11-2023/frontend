@@ -1,11 +1,21 @@
 <script setup>
 import LayoutLoginPageVue from "./LayoutLoginPage.vue";
 import { reactive } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from "vue-router";
+
+const store = useStore();
+const router = useRouter();
 
 const data = reactive({
     login: '',
     password: ''
 })
+
+const login = () => {
+    store.commit('setLoggedIn', true)
+    router.push('catalog')
+}
 
 </script>
 
@@ -13,7 +23,7 @@ const data = reactive({
     <LayoutLoginPageVue>
         <template v-slot:title>Вход</template>
         <template v-slot:link>
-            <a href="/">Зарегистрироваться</a>
+            <router-link class="login-page__link" :to="{path: 'registration'}">Зарегистрироваться</router-link>
         </template>
         <template v-slot:form>
             <form class="login-page__form w-60">
@@ -34,7 +44,7 @@ const data = reactive({
                            placeholder="Пароль">
                 </div>
                 <div class="login-page__button d-flex justify-content-center">
-                    <Button class="">Войти</Button>
+                    <Button @click="login">Войти</Button>
                 </div>
             </form>
         </template>

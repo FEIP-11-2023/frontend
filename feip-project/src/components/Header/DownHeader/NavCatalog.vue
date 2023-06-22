@@ -74,7 +74,7 @@ const nav = [
         v-for="item in nav"
         :key="item.name"
         >
-        <a 
+        <a
         
         href="'/" class="catalog-nav__link text-uppercase">
             {{ item.name }}

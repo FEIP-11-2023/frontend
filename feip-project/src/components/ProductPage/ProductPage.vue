@@ -30,15 +30,15 @@ const product_ = reactive({
     <div class="product d-flex">
         <div class="product__photo">
             <!-- сделать слайдер -->
-            <Slider>
+            <!-- <Slider>
                 <swiper-slide v-for="img in product.img"
                 :key="img">
                 <img :src="`/examples/${img}.jpg`" :alt="img"/>
             </swiper-slide>
                 
-            </Slider>
+            </Slider> -->
             
-            <!-- <img :src="`/examples/${product.img}.jpg`" :alt="product.img"> -->
+            <img :src="`/examples/${product.img[0]}.jpg`" :alt="product.img">
         </div>
     
         <div class="product__info d-flex flex-column">

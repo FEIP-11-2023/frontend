@@ -11,10 +11,10 @@ function showModal(){
 
 const userNav = [
   {name: 'Вход/Регистрация', 
-   href: '/',
+   href: '/login',
    img: 'user'},
-  {name: '5 000 ₽ / 5 шт', 
-   href: '/',
+  {name: 'Корзина', 
+   href: '/cart',
    img: 'basket'}
 ]
 

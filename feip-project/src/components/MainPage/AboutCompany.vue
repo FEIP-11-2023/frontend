@@ -3,6 +3,9 @@ import Button from "../Global/Button.vue";
 </script>
 
 <template>
+
+  <!-- сделать переход на страницу info по клику -->
+
   <div class="about-company">
     <img
       src="../../assets/examples/mountains.jpg"
@@ -15,7 +18,9 @@ import Button from "../Global/Button.vue";
         Меня зовут Имя Фамилия. Я заказываю одежду Бренд из Страна с персональной скидкой
         и подбираю для Вас интересные варианты сумок, одежды и обуви в шоуруме.
       </div>
-      <Button>ПОДРОБНЕЕ</Button>
+      <Button >
+        ПОДРОБНЕЕ
+      </Button>
     </div>
   </div>
 </template>

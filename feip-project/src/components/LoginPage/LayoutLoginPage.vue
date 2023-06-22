@@ -8,7 +8,7 @@
             <div class="login-page__title my-auto">
                 <slot name="title"></slot>
             </div>
-            <div class="login-page__registration my-auto">
+            <div class="login-page__link my-auto">
                 <slot name="link"></slot>
             </div>
         </div>
@@ -35,12 +35,12 @@
 
 }
 
-.login-page__registration a {
+.login-page__link {
     font-size: 20px;
     color: #323540;
 }
 
-.login-page__registration a:hover {
+.login-page__link:hover {
     opacity: 0.5;
     cursor: pointer;
 }

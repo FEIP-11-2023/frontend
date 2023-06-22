@@ -27,7 +27,7 @@ const res = {
 
     <div class="basket-page container-xxl">
         <div class="basket-page__header d-flex">
-            <a href="/"
+            <a href="/cart"
                class="basket-page__link my-auto">
                 <img src="../../assets/bread-crumbs/back-arrow.svg"
                      alt="">

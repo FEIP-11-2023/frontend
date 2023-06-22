@@ -1,7 +1,7 @@
 <script setup>
 
 const links = [
-    { name: 'О нас', href: '/' },
+    { name: 'О нас', href: '/info' },
     { name: 'Контакты', href: '/' },
     { name: 'Доставка', href: '/' },
     { name: 'Оплата', href: '/' }

@@ -1,6 +1,11 @@
 <script setup>
 import LayoutLoginPage from './LayoutLoginPage.vue';
 import { reactive } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from "vue-router";
+
+const store = useStore();
+const router = useRouter();
 
 const data = reactive({
     name: '',
@@ -10,6 +15,13 @@ const data = reactive({
     check_password: ''
 })
 
+const registerUser = () => {
+    store.dispatch('register', {username: data.name, password: data.password, email: data.email, invite_code: 'fkfkf'}).then((data) => {
+    }).catch((err) => {
+        alert(err.response.data["content"]["message"]["ru"])
+    })
+}
+
 </script>
 
 <template>
@@ -18,7 +30,7 @@ const data = reactive({
         Регистрация 
     </template>
     <template v-slot:link>
-        <a href="/">Вход</a>
+        <router-link class="login-page__link" :to="{path: 'login'}">Вход</router-link>
     </template>
     <template v-slot:form>
         <form class="login-page__form">
@@ -33,21 +45,9 @@ const data = reactive({
                            required>
                 </div>
                 <div class="form-group mb-3">
-                    <label for="phone">Телефон</label>
-                    <input 
-                    v-model="data.phone"
-                    type="tel"
-                           class="form-control"
-                           id="phone"
-                           placeholder="+7 (900) 900-90-90"
-                           pattern="+7([0-9]){3} [0-9]{3}-[0-9]{2}-[0-9]{2}"
-                           maxlength="12"
-                           required>
-                </div>
-                <div class="form-group mb-3">
                     <label for="email">E-mail</label>
                     <input 
-                    v-model="data.Email"
+                    v-model="data.email"
                     type="email"
                            class="form-control"
                            id="email"
@@ -64,18 +64,8 @@ const data = reactive({
                            placeholder="Пароль"
                            required>
                 </div>
-                <div class="form-group mb-4">
-                    <label for="password">Повторите пароль</label>
-                    <input 
-                    v-model="data.check_password"
-                    type="password"
-                           class="form-control"
-                           id="check-password"
-                           placeholder="Повторите пароль"
-                           required>
-                </div>
                 <div class="login-page__button d-flex justify-content-center">
-                    <Button class="w-100">Зарегистрироваться</Button>
+                    <Button @click="registerUser" class="w-100" type="button">Зарегистрироваться</Button>
                 </div>
         </form>
     </template>

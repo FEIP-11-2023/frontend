@@ -30,14 +30,14 @@ export default {
                 <NavCatalog />
               </div>
 
-            <a class="link-catalog d-flex align-items-center ">
+            <router-link :to="{path: 'catalog'}" class="link-catalog d-flex align-items-center ">
                 КАТАЛОГ
-            </a>
+            </router-link>
         </div>
         <div class="search_block">
-            <input class="search p-3"
+            <input class="search p-2"
                    type="text">
-            <button class="button_search">
+            <button class="button_search ">
                 <img src="../../../assets/header/search.svg"
                      alt="search">
             </button>
@@ -75,6 +75,7 @@ export default {
     appearance: none;
     background: #F7F7FC;
     border-radius: 0px;
+    padding: 0;
 }
 
 .search:focus {
@@ -158,6 +159,9 @@ export default {
     cursor: pointer;
 }
 
-.show {display:block;}
+.show {
+    display:block;
+    z-index: 2;
+}
 
 </style>
