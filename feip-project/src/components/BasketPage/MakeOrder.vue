@@ -1,6 +1,11 @@
 <script setup>
 import BasketResult from "./BasketResult.vue";
 import { reactive } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from "vue-router";
+
+const store = useStore();
+const router = useRouter();
 
 const data = reactive({
     name: '',
@@ -20,11 +25,13 @@ const res = {
     sum: '24 000'
 }
 
+const inSuccessPage = () => {
+    router.push('success')
+}
+
 </script>
 
 <template>
-    <!-- пересмотреть видос и сделать как там работу с формой-->
-
     <div class="basket-page container-xxl">
         <div class="basket-page__header d-flex">
             <a href="/cart"
@@ -104,63 +111,65 @@ const res = {
                     </div>
                 </div>
 
-
-                <div class="form-group d-flex">
-                    <div class="me-4">
-                        <label for="post_index">Почтовый индекс*</label>
+                <div v-if="data.delivery == true" class="d-grid gap-4">
+                    <div class="form-group d-flex">
+                        <div class="me-4">
+                            <label for="post_index">Почтовый индекс*</label>
+                            <input 
+                            v-model="post_index"
+                            type="text"
+                                   class="form-control"
+                                   id="post_index"
+                                   placeholder="101000"
+                                   required>
+                        </div>
+    
+                        <div>
+                            <label for="city">Населенный пункт*</label>
+                            <input 
+                            v-model="data.city"
+                            type="text"
+                                   class="form-control"
+                                   id="city"
+                                   placeholder="Населенный пункт"
+                                   required>
+                        </div>
+    
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Улица*</label>
                         <input 
-                        v-model="post_index"
+                        v-model="data.street"
                         type="text"
                                class="form-control"
-                               id="post_index"
-                               placeholder="101000"
+                               id="street"
+                               placeholder="Улица"
                                required>
                     </div>
-
-                    <div>
-                        <label for="city">Населенный пункт*</label>
-                        <input 
-                        v-model="data.city"
-                        type="text"
-                               class="form-control"
-                               id="city"
-                               placeholder="Населенный пункт"
-                               required>
+                    <div class="form-group d-flex">
+                        <div class="me-4">
+                            <label for="home">Дом*</label>
+                            <input 
+                            v-model="data.home"
+                            type="text"
+                                   class="form-control"
+                                   id="home"
+                                   placeholder="Дом"
+                                   required>
+                        </div>
+                        <div>
+                            <label for="flat">Квартира / Офис</label>
+                            <input 
+                            v-model="data.flat"
+                            type="text"
+                                   class="form-control"
+                                   id="flat"
+                                   placeholder="Номер квартиры">
+                        </div>
+    
                     </div>
+                </div>
 
-                </div>
-                <div class="form-group">
-                    <label for="street">Улица*</label>
-                    <input 
-                    v-model="data.street"
-                    type="text"
-                           class="form-control"
-                           id="street"
-                           placeholder="Улица"
-                           required>
-                </div>
-                <div class="form-group d-flex">
-                    <div class="me-4">
-                        <label for="home">Дом*</label>
-                        <input 
-                        v-model="data.home"
-                        type="text"
-                               class="form-control"
-                               id="home"
-                               placeholder="Дом"
-                               required>
-                    </div>
-                    <div>
-                        <label for="flat">Квартира / Офис</label>
-                        <input 
-                        v-model="data.flat"
-                        type="text"
-                               class="form-control"
-                               id="flat"
-                               placeholder="Номер квартиры">
-                    </div>
-
-                </div>
                 <div class="form-group">
                     <label for="comment">Комментарий</label>
                     <textarea 
@@ -183,7 +192,10 @@ const res = {
                         {{ res.sum }}
                     </template>
                     <template v-slot:button>
-                        Отправить заявку
+                        <Button class="m-0 w-100" @click="inSuccessPage">
+                            Отправить заявку
+                        </Button>
+                        
                     </template>
                 </BasketResult>
             </div>

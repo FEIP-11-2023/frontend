@@ -1,6 +1,19 @@
 <script setup>
 import Button from './Button.vue';
 import { reactive } from 'vue';
+import { defineProps } from 'vue';
+
+defineProps({
+    name: String,
+    article: String,
+    description: String, 
+    structure: String,
+    price: String,
+    img: String,
+    sizes: Array,
+    color: Array,
+    max_count: Number
+})
 
 const product_ = reactive({
     name: '',

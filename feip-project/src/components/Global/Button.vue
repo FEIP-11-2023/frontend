@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <button class="button__global text-uppercase">
+  <button class="button__global text-uppercase" type="button">
     <slot />
   </button>
 </template>

@@ -1,6 +1,13 @@
 <script setup>
-import Header from "../Header/Header.vue";
-import Footer from "../Footer/Footer.vue";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+
+const store = useStore();
+const router = useRouter();
+
+const backMain = () => {
+    router.push('/')
+}
 
 </script>
 
@@ -18,7 +25,7 @@ import Footer from "../Footer/Footer.vue";
             Спасибо за заявку, скоро с вами свяжется наш менеджер
         </div>
         <div class="success-order__button">
-            <Button>
+            <Button type="button" @click="backMain">
                 На главную
             </Button>
         </div>

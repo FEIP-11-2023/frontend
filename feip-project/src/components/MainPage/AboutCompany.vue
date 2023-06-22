@@ -1,5 +1,9 @@
 <script setup>
 import Button from "../Global/Button.vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
 </script>
 
 <template>
@@ -18,7 +22,7 @@ import Button from "../Global/Button.vue";
         Меня зовут Имя Фамилия. Я заказываю одежду Бренд из Страна с персональной скидкой
         и подбираю для Вас интересные варианты сумок, одежды и обуви в шоуруме.
       </div>
-      <Button >
+      <Button @click="router.push('info')">
         ПОДРОБНЕЕ
       </Button>
     </div>

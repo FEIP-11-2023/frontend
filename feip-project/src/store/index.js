@@ -23,7 +23,10 @@ const store = createStore({
     register: (context, payload) => {
         let promise = axiosInstance.post('/api/v1/auth/register', payload)
         return promise
-    }
+    },
+    // getallgoods: () => {
+
+    // }
   }
 })
 

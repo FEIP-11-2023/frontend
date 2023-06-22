@@ -2,19 +2,6 @@
 import CardProduct from '../Global/CardProduct.vue';
 import Paginator from 'primevue/paginator';
 
-// const product = {
-//     title: 'Water-repellent wool twill trench coat',
-//     price: '17 200 ₽',
-//     label: 'NEW',
-//     img: 'card_img'
-// }
-
-// const product_ = reactive({
-//     name: '',
-//     price: '',
-//     size: ''
-// })
-
 // const size = ['XS', 'S', 'M', 'L', 'XL']
 
 let products = [

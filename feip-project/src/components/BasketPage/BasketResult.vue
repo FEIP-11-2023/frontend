@@ -42,9 +42,7 @@
         </div>
 
         <div class="basket-result__button">
-            <Button class="m-0 w-100">
-                <slot name="button"></slot>
-            </Button>
+            <slot name="button"></slot>
         </div>
     </div>
 </template>

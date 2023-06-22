@@ -1,18 +1,31 @@
 <script setup>
 import { reactive } from "vue";
 import Button from "../Global/Button.vue";
+import { defineProps } from 'vue';
 
-const product = {
-    name: 'Жакет Weekend Max Mara ONDINA',
-    article: '4022995L',
-    description: "Жакет с поясом\n - Длинный двубортный плащ с поясом;\n Кокетка на спине - Застёжка на 3 ряда пуговиц; 2 внешних кармана; Регулируемые паты на рукавах; сзади высокая встречная складка; Длина: 123,6 см",
-    structure: 'Основная ткань: 100% Полиэстер; Пояс: 100% Полиэстер; Подкл: 100% Полиэстер',
-    price: '6 000 ₽',
-    img: ['card_img', 'card_img', 'mountains', 'card_img'],
-    size: [42, 44, 46, 50, 52],
-    color: ['#FFFFFF', '#CDCFD6', '#616575', '#323540'],
-    max_count: 10
-}
+defineProps({
+    name: String,
+    article: String,
+    description: String, 
+    structure: String,
+    price: String,
+    img: String,
+    sizes: Array,
+    color: Array,
+    max_count: Number
+})
+
+// const product = {
+//     name: 'Жакет Weekend Max Mara ONDINA',
+//     article: '4022995L',
+//     description: "Жакет с поясом\n - Длинный двубортный плащ с поясом;\n Кокетка на спине - Застёжка на 3 ряда пуговиц; 2 внешних кармана; Регулируемые паты на рукавах; сзади высокая встречная складка; Длина: 123,6 см",
+//     structure: 'Основная ткань: 100% Полиэстер; Пояс: 100% Полиэстер; Подкл: 100% Полиэстер',
+//     price: '6 000 ₽',
+//     img: ['card_img', 'card_img', 'mountains', 'card_img'],
+//     size: [42, 44, 46, 50, 52],
+//     color: ['#FFFFFF', '#CDCFD6', '#616575', '#323540'],
+//     max_count: 10
+// }
 
 const product_ = reactive({
     size: '',
@@ -25,99 +38,130 @@ const product_ = reactive({
 </script>
 
 <template>
-  <div class="container-xxl ">
+    <div class="container-xxl ">
 
-    <div class="product d-flex">
-        <div class="product__photo">
-            <!-- сделать слайдер -->
-            <!-- <Slider>
+        <div class="product d-flex">
+            <div class="product__photo">
+                <!-- сделать слайдер -->
+
+                <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div v-for="img in product.img" :key="img" class="carousel-item active">
+                    <img :src="`/examples/${img}.jpg`" :alt="img" class="d-block w-80"/>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div> -->
+
+                <!-- <Slider>
                 <swiper-slide v-for="img in product.img"
                 :key="img">
                 <img :src="`/examples/${img}.jpg`" :alt="img"/>
             </swiper-slide>
                 
             </Slider> -->
-            
-            <img :src="`/examples/${product.img[0]}.jpg`" :alt="product.img">
-        </div>
-    
-        <div class="product__info d-flex flex-column">
-            <div class="product__info-title">
-                {{ product.name }}
-            </div>
-            <div class="product__article">
-                Артикул: {{ product.article }}
-            </div>
-            <div class="product__description">
-                {{ product.description }}
-            </div>
-            <div class="product__structure">
-                <p class="text-uppercase mb-2" style="color: #323540">
-                    Состав:
-                </p>
-                {{ product.structure }}
-            </div>
-            <div class="product__size">
-                <div class="product__size-choice">
-                    <p class="text-uppercase mb-3" style="color: #323540">
-                        Размер:
-                    </p>
-                    <div class="d-flex w-100">
-                        <select class="size-choice__select" aria-label="product-size">
-                            <option v-for="size in product.size"
-                            :key="size"
-                            :value="size"
-                            >
-                                {{ size }}
-                            </option>
-                          </select>
-                          <div class="product__size-text">
-                            <p>
-                                Не можете подобрать размер?
-                            </p>
-                            <p class="" style="text-decoration-line: underline">
-                                Запишитесь на примерку в наш шоурум
-                            </p>
-                            
-                          </div>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="product__color">
-                <p class="text-uppercase mb-4" style="color: #323540">
-                    Цвет:
-                </p>
-                <div class="product__color-radio d-flex">
-                    <!-- доработать с цветами -->
-                    <div class="me-2 color-item"
-                    v-for="item in product.color"
-                    :key="item"
-                    :style="`background-color: ${item}`">
-                        <input type="radio" name="color" id="white" value="white" checked>
-                    <label for="white"><span class="white"></span></label>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="product__buy d-flex">
-                <div class="product__price font-weight-bold">
-                    {{ product.price }}
-                </div>
-                <div class="product__count">
-                    <input type="number" :max="product.max_count" min="1" id="count" name="count" placeholder="1">
-                </div>
-                <div class="product__button">
-                    <Button>
-                        В корзину
-                    </Button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-  </div>
-  <Footer />
+                <img :src="`/examples/${product.img[0]}.jpg`"
+                     :alt="product.img">
+            </div>
+
+            <div class="product__info d-flex flex-column">
+                <div class="product__info-title">
+                    {{ name }}
+                </div>
+                <div class="product__article">
+                    Артикул: {{ article }}
+                </div>
+                <div class="product__description">
+                    {{ description }}
+                </div>
+                <div class="product__structure">
+                    <p class="text-uppercase mb-2"
+                       style="color: #323540">
+                        Состав:
+                    </p>
+                    {{ structure }}
+                </div>
+                <div class="product__size">
+                    <div class="product__size-choice">
+                        <p class="text-uppercase mb-3"
+                           style="color: #323540">
+                            Размер:
+                        </p>
+                        <div class="d-flex w-100">
+                            <select class="size-choice__select"
+                                    aria-label="product-size">
+                                <option v-for="size in sizes"
+                                        :key="size"
+                                        :value="size">
+                                    {{ size }}
+                                </option>
+                            </select>
+                            <div class="product__size-text">
+                                <p>
+                                    Не можете подобрать размер?
+                                </p>
+                                <p class=""
+                                   style="text-decoration-line: underline">
+                                    Запишитесь на примерку в наш шоурум
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="product__color">
+                    <p class="text-uppercase mb-4"
+                       style="color: #323540">
+                        Цвет:
+                    </p>
+                    <div class="product__color-radio d-flex">
+                        <!-- доработать с цветами -->
+                        <div class="me-2 color-item"
+                             v-for="item in color"
+                             :key="item"
+                             :style="`background-color: ${item}`">
+                            <input type="radio"
+                                   name="color"
+                                   id="white"
+                                   value="white"
+                                   checked>
+                            <label for="white"><span class="white"></span></label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="product__buy d-flex">
+                    <div class="product__price font-weight-bold">
+                        {{ price }}
+                    </div>
+                    <div class="product__count">
+                        <input type="number"
+                               :max="max_count"
+                               min="1"
+                               id="count"
+                               name="count"
+                               placeholder="1">
+                    </div>
+                    <div class="product__button">
+                        <Button>
+                            В корзину
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <Footer />
 </template>
 
 <style>
@@ -223,11 +267,9 @@ const product_ = reactive({
     opacity: 0;
 }
 
-.color-item input:checked + label {
+.color-item input:checked+label {
     width: 100%;
     height: 100%;
     border-radius: 50%;
     border: 2px solid #616575;
-}
-
-</style>
+}</style>

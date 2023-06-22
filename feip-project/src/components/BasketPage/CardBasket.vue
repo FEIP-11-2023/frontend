@@ -1,14 +1,11 @@
 <script setup>
 
+// скрипт для удавления товара из корзины
 
 </script>
 
 <template>
-  <div class="card-order d-flex">
-    <!-- доделать кнопочку удалить -->
-    <!-- <button>
-        удалить
-    </button> -->
+  <div class="card-order d-flex justify-content-between">
     <div class="card-order__img">
         <slot name="img"></slot>
     </div>
@@ -39,6 +36,9 @@
             </div>
         </div>
     </div>
+    <button type="button" class="card-order__btn-delete">
+        <img src="../../assets/basket/basket-delete.svg" alt="">
+    </button>
   </div>
 </template>
 
@@ -88,6 +88,13 @@
 
 .card-order__price {
     margin: 1rem;
+}
+
+.card-order__btn-delete {
+    border: none;
+    background-color: transparent;
+    width: 2rem;
+    height: 2rem;
 }
 
 </style>

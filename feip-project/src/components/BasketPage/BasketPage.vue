@@ -1,40 +1,57 @@
 <script setup>
 import CardBasket from "./CardBasket.vue";
 import BasketResult from "./BasketResult.vue";
+import { useStore } from 'vuex';
+import { useRouter } from "vue-router";
+import { reactive } from "vue";
 
-const products = [
+
+const router = useRouter();
+
+const products = reactive([
     {
         name: 'Жакет Weekend Max Mara ONDINA',
         size: '42',
-        count: '1',
+        count: 1,
         price: '27 000',
-        img: 'mountains'
+        img: 'mountains',
+        max_count: 25
     },
     {
         name: 'Жакет Weekend Max Mara ONDINA',
         size: '42',
-        count: '1',
+        count: 1,
         price: '27 000',
-        img: 'card_img'
+        img: 'card_img',
+        max_count: 15
+
     },
     {
         name: 'Жакет Weekend Max Mara ONDINA',
         size: '42',
-        count: '1',
+        count: 1,
         price: '27 000',
-        img: 'mountains'
+        img: 'mountains',
+        max_count: 10
     },
-]
+])
 
 const res = {
     count: 4,
     sum: '24 000'
 }
 
+const backCatalog = () => {
+    router.push('catalog');
+}
+
+const inOrderPage = () => {
+    router.push('order')
+}
+
 </script>
 
 <template>
-    <!-- добавить надись и картинку если корзина пуста -->
 
   <div class="basket-page container-xxl">
     <div class="basket-page__header d-flex">
@@ -47,8 +64,12 @@ const res = {
         </p>
     </div>
         <div class="basket-page__main d-flex justify-content-between">
-            <div class="d-flex flex-column">
-                <CardBasket v-for="product in products"
+            <div v-if="products.length == 0" class="mx-auto d-flex align-items-center flex-column">
+                <p class="basket-page__not-products mb-4 ">Вы пока не добавили товары в корзину</p>
+                <Button @click="backCatalog" class="">В каталог</Button>
+            </div>
+            <div class="d-flex flex-column" v-else>
+                <CardBasket  v-for="product in products"
                 :key="product">
                     <template v-slot:img>
                         <img :src="`/examples/${product.img}.jpg`" :alt="product.img">
@@ -60,7 +81,7 @@ const res = {
                         {{ product.size }}
                     </template>
                     <template v-slot:count>
-                        {{ product.count }}
+                        <input v-model="product.count" type="number" :max="product.max_count" min="1" id="count" name="count" :placeholder="product.count">
                     </template>
                     <template v-slot:price>
                         {{ product.price }}
@@ -68,7 +89,7 @@ const res = {
                 </CardBasket>
 
             </div>
-            <div class="basket-page__result">
+            <div class="basket-page__result" v-if="products.length !== 0">
                 <BasketResult>
                     <template v-slot:header>
                         Ваша корзина
@@ -80,7 +101,10 @@ const res = {
                         {{ res.sum }}
                     </template>
                     <template v-slot:button>
-                        Оформить заказ
+                        <Button class="m-0 w-100" @click="inOrderPage">
+                            Оформить заказ
+                        </Button>
+                        
                     </template>
                 </BasketResult>
             </div>
@@ -125,8 +149,9 @@ const res = {
     padding: 32px 175px;
 }
 
-.basket-page__result {
-    
+.basket-page__not-products {
+    font-size: 20px;
+
 }
 
 </style>
