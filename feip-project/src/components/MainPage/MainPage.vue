@@ -25,7 +25,7 @@ import MainInstagram from "./MainInstagram.vue";
     <MainInstagram />
   </div>
 
-  <!-- <Footer /> -->
+  <Footer />
 </template>
 
 <style></style>

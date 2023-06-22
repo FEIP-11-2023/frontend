@@ -7,19 +7,23 @@ import PlugPage from './components/PlugPages/PlugPage.vue';
 import Header from './components/Header/Header.vue';
 import Page404 from './components/PlugPages/Page404.vue';
 import ProductPage from './components/ProductPage/ProductPage.vue';
-import BasketPage from './components/BasketPage/BasketPAGE.vue'
+import BasketPage from './components/BasketPage/BasketPage.vue';
 import MakeOrder from './components/BasketPage/MakeOrder.vue';
 import CatalogPage from './components/CatalogPage/CatalogPage.vue';
 import LoginPage from './components/LoginPage/LoginPage.vue';
 import RegistrationPage from './components/LoginPage/RegistrationPage.vue';
 
-
+import { RouterView, RouterLink } from 'vue-router';
 
 </script>
 
 <template>
 
     <Header />
+    <router-view>
+        
+    </router-view>
+    
 
 <!-- <MainPage /> -->
 
@@ -46,7 +50,7 @@ import RegistrationPage from './components/LoginPage/RegistrationPage.vue';
 
 <!-- <MakeOrder /> -->
 
-<Footer />
+<!-- <Footer /> -->
 </template>
 
 <style>

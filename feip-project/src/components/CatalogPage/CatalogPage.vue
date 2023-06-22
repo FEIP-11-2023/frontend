@@ -136,10 +136,9 @@ const sort = [
             </CardProduct>
         </div>
     </div>
-
-    
-
   </div>
+
+  <Footer />
 </template>
 
 <style>

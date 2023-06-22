@@ -87,6 +87,7 @@ const res = {
         </div>
     
   </div>
+  <Footer />
 </template>
 
 <style>

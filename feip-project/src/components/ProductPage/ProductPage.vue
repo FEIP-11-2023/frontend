@@ -116,9 +116,8 @@ const product_ = reactive({
         </div>
     </div>
 
-
-
   </div>
+  <Footer />
 </template>
 
 <style>

@@ -15,7 +15,8 @@
     "primevue": "^3.29.2",
     "swiper": "^9.4.1",
     "vue": "^3.3.4",
-    "vue-ai-carousel": "^1.1.1"
+    "vue-ai-carousel": "^1.1.1",
+    "vue-router": "^4.2.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
