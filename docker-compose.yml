@@ -1,0 +1,20 @@
+version: '3'
+
+networks:
+  traefik-net:
+    external: true
+services:
+  frontend:
+    build: .
+    networks:
+      - traefik-net
+    env_file: .env
+    restart: always
+    expose:
+      - 8080
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=Host(`frontend.mrfox131.ru`)"
+      - "traefik.http.routers.backend.entrypoints=websecure"
+      - "traefik.http.routers.backend.tls=true"
+      - "traefik.http.routers.backend.tls.certresolver=le"
