@@ -1,16 +1,23 @@
-<script>
-// import NavCatalog from './NavCatalog.vue';
+<script setup>
+import {useRouter} from "vue-router";
+import {ref} from "vue";
 
-
-export default {
-    name: 'burger',
-    data() {
-        return {
-            isActive: false,
-        }
+const isActive = ref(false)
+const searchQuery = ref("")
+const router = useRouter()
+const search = () => {
+    let curr = router.currentRoute.value.name
+    console.log(curr)
+    if (curr === "catalog1"){
+        router.push(router.currentRoute.value.fullPath+"/"+searchQuery.value)
+    } else if (curr === "catalog2") {
+        router.push(router.currentRoute.value.fullPath.split('/').slice(0, -1).join('/')+"/"+searchQuery.value)
+    } else if (curr === "catalog") {
+        router.push("/search/category/"+searchQuery.value)
+    } else {
+        console.log("Shit, here we go again")
     }
 }
-
 </script>
 
 <template>
@@ -36,8 +43,8 @@ export default {
         </div>
         <div class="search_block">
             <input class="search p-2"
-                   type="text">
-            <button class="button_search ">
+                   type="text" v-model="searchQuery">
+            <button class="button_search " @click="search">
                 <img src="../../../assets/header/search.svg"
                      alt="search">
             </button>

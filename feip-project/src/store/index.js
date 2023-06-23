@@ -46,7 +46,15 @@ const store = createStore({
     },
     getCategories: (context, payload) => {
         return axiosInstance.get("/api/v1/goods/category")
-    }
+    },
+    getGoodsByCategory: (context, payload) => {
+        return axiosInstance.get("https://api.mrfox131.ru/api/v1/goods/good/search", {
+            params: {
+                name: payload.name,
+                category_ids: payload.category_id,
+            }
+        })
+    },
   }
 })
 

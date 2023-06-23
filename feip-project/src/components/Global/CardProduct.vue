@@ -1,5 +1,4 @@
 <script setup>
-import Button from './Button.vue';
 import { reactive } from 'vue';
 import { defineProps } from 'vue';
 

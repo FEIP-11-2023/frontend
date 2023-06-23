@@ -25,7 +25,10 @@ const routes = [
     {path: '/404', name: '404', component: Page404},
     {path: '/plug', name: 'plug', component: PlugPage},
     {path: '/product', name: 'product', component: ProductPage},
-    {path: '/success', name: 'success', component: SuccessOrderPage}
+    {path: '/success', name: 'success', component: SuccessOrderPage},
+    {path: '/search/category/:category_id', name: 'catalog1', component: CatalogPage, props: true},
+    {path: '/search/category/:category_id/:name', name: 'catalog2', component: CatalogPage, props: true},
+    {path: '/search/category/:name', name: 'catalog3', component: CatalogPage, props: true}
 ]
 
 const router = createRouter({
