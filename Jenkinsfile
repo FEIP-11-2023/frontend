@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage("Deploy Prod") {
             when {
-                branch "master"
+                branch "main"
             }
             steps {
                 echo "Deploying and Building..."
