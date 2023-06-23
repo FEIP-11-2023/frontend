@@ -11,21 +11,42 @@ const store = createStore({
   state () {
     return {
         refreshToken: localStorage.getItem("refreshToken"),
-        loggedIn: false
+        loggedIn: false,
+        accessToken: null
     }
   },
   mutations: {
     setLoggedIn: (state, payload) => {
         state.loggedIn = payload
+    },
+    setAccessToken: (state, payload) => {
+        state.accessToken = payload
+    },
+    setRefreshToken: (state, payload) => {
+        localStorage.setItem("refreshToken", payload)
+        state.refreshToken = payload
     }
+
   },
   actions: {
     register: (context, payload) => {
         return axiosInstance.post('/api/v1/auth/register', payload)
     },
-    // getallgoods: () => {
+    login: (context, payload) => {
+        let formdata = new FormData()
 
-    // }
+        formdata.set("username", payload["username"])
+        formdata.set("password", payload["password"])
+
+        return axiosInstance.post('/api/v1/auth/token', formdata).then((data) => {
+            context.commit("setAccessToken", data.data["access_token"])
+            context.commit("setRefreshToken", data.data["refresh_token"])
+            context.commit("setLoggedIn", true)
+        })
+    },
+    getCategories: (context, payload) => {
+        return axiosInstance.get("/api/v1/goods/category")
+    }
   }
 })
 

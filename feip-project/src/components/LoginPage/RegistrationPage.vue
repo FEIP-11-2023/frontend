@@ -15,33 +15,33 @@ const data = reactive({
     check_password: ''
 })
 
-const errors = reactive({
-    name: {
-        error: false,
-        message: ""
+const errors = {
+    name:  {
+        error: ref(false),
+        message: ref("")
     },
     email: {
-        error: false,
-        message: "",
+        error: ref(false),
+        message: ref(""),
     },
-    password: {
-        error: false,
-        message: ""
+    password:  {
+        error: ref(false),
+        message: ref("")
     }
-})
+}
 
 const is_loading = ref(false)
 
 const set_error = (err) => {
     if (err["loc"][1] === "password") {
-        errors.password.error = true
-        errors.password.message = err["msg"]
+        errors.password.error.value = true
+        errors.password.message.value = err["msg"]
     } else if (err["loc"][1] === "email") {
-        errors.email.error = true
-        errors.email.message = err["msg"]
+        errors.email.error.value = true
+        errors.email.message.value = err["msg"]
     } else if (err["loc"][1] === "username") {
-        errors.name.error = true
-        errors.name.message = err["msg"]
+        errors.name.error.value = true
+        errors.name.message.value = err["msg"]
     }
 }
 
@@ -55,7 +55,6 @@ const registerUser = () => {
     }).then((data) => {
         router.push("/login")
     }).catch((err) => {
-        console.log(err)
         if (err.response.status !== 422) {
             alert(err.response.data["content"]["message"]["ru"])
         } else {
@@ -90,7 +89,7 @@ const registerUser = () => {
                             required
                             type="text">
                 </div>
-                <div v-if="errors.name.error" class="emsg"></div>
+                <div v-if="errors.name.error" class="emsg">{{errors.name.message.value}}</div>
                 <div class="form-group mb-3">
                     <label for="email">E-mail</label>
                     <input
@@ -102,7 +101,7 @@ const registerUser = () => {
                             type="email">
                 </div>
 
-                <div v-if="errors.email.error" class="emsg"></div>
+                <div v-if="errors.email.error" class="emsg">{{errors.email.message.value}}</div>
                 <div class="form-group mb-3">
                     <label for="password">Пароль</label>
                     <input
@@ -114,7 +113,7 @@ const registerUser = () => {
                             type="password">
                 </div>
 
-                <div v-if="errors.password.error" class="emsg"></div>
+                <div v-if="errors.password.error" class="emsg">{{errors.password.message.value}}</div>
                 <div class="login-page__button d-flex justify-content-center">
                     <Button :disabled="is_loading" class="w-100" type="button" @click="registerUser">
                         Зарегистрироваться
