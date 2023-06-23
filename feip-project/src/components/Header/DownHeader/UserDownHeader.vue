@@ -22,11 +22,11 @@ const userNav = [
 
 <template>      
           <div class="user-nav d-flex align-items-center">
-            <a
+            <router-link
             v-for="element in userNav"
             :key="element"
             class="user-nav-element d-flex"
-            :href=element.href>
+            :to=element.href>
             <img 
             class="user-nav__img"
             :src="`/header/${element.img}.svg`" 
@@ -34,7 +34,7 @@ const userNav = [
             <div class="user-nav__name">
               {{ element.name }}
             </div>
-          </a>
+          </router-link>
       
           </div>
 
