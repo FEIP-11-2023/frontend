@@ -8,13 +8,12 @@ services:
     build: .
     networks:
       - traefik-net
-    env_file: .env
     restart: always
     expose:
       - 8080
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=Host(`frontend.mrfox131.ru`)"
-      - "traefik.http.routers.backend.entrypoints=websecure"
-      - "traefik.http.routers.backend.tls=true"
-      - "traefik.http.routers.backend.tls.certresolver=le"
+      - "traefik.http.routers.frontend.rule=Host(`frontend.mrfox131.ru`)"
+      - "traefik.http.routers.frontend.entrypoints=websecure"
+      - "traefik.http.routers.frontend.tls=true"
+      - "traefik.http.routers.frontend.tls.certresolver=le"
