@@ -46,10 +46,6 @@ const set_error = (err) => {
 }
 
 const registerUser = () => {
-    if (data.password !== data.check_password) {
-        alert('Пароли не совпадают')
-        return
-    }
     is_loading.value = true
     store.dispatch('register', {
         username: data.name,
@@ -59,6 +55,7 @@ const registerUser = () => {
     }).then((data) => {
         router.push("/login")
     }).catch((err) => {
+        console.log(err)
         if (err.response.status !== 422) {
             alert(err.response.data["content"]["message"]["ru"])
         } else {
