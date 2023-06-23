@@ -2,9 +2,9 @@ FROM node:lts-alpine
 
 RUN npm install -g http-server
 WORKDIR /app
-COPY package*.json ./
+COPY feip-project/package*.json ./
 RUN npm install
-COPY . .
+COPY feip-project/. .
 RUN npm run build
 
 EXPOSE 8080
