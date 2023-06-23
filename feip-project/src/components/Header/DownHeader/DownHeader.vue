@@ -7,11 +7,11 @@ import UserDownHeader from './UserDownHeader.vue';
 <template>
   <div class="down-header w-100 border-bottom d-flex align-items-center ">
     <div class="container-xxl d-flex justify-content-between">
-      <a href="/"
+      <router-link to="/"
          class="logo ">
         <img src="../../../assets/header/LOGO.svg"
              alt="">
-      </a>
+      </router-link>
 
       <CatalogDownHeader /> 
 

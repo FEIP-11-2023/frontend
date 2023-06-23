@@ -34,12 +34,12 @@ const inSuccessPage = () => {
 <template>
     <div class="basket-page container-xxl">
         <div class="basket-page__header d-flex">
-            <a href="/cart"
+            <router-link to="/cart"
                class="basket-page__link my-auto">
                 <img src="../../assets/bread-crumbs/back-arrow.svg"
                      alt="">
                 Вернуться в корзину
-            </a>
+            </router-link>
             <p class="basket-page__title text-uppercase">
                 Оформление заказа
             </p>

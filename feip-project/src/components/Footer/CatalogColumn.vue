@@ -25,21 +25,21 @@ const catalog2 = [
         <div class="row d-flex ">
             <div class="col-6
              d-flex flex-column">
-                <a class="links-item "
+                <router-link class="links-item "
                    v-for="item in catalog1"
                    :key="item"
-                   :href=item.href>
+                   :to=item.href>
                     {{ item.name }}
-                </a>
+                </router-link>
             </div>
 
             <div class="col d-flex flex-column">
-                <a class="links-item "
+                <router-link class="links-item "
                    v-for="item in catalog2"
                    :key="item"
-                   :href=item.href>
+                   :to=item.href>
                     {{ item.name }}
-                </a>
+                </router-link>
             </div>
         </div>
 

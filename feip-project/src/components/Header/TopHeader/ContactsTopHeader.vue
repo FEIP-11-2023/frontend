@@ -17,11 +17,11 @@ const nav = [
         v-for="element in nav"
         :key="element"
         >
-          <a class="element-nav-top align-top text-light "
-           :href=element.href>
+          <router-link class="element-nav-top align-top text-light "
+           :to=element.href>
            <img :src="`/header/${element.img}`" alt="" class="right-nav-img">
           {{ element.name }}
-        </a>
+        </router-link>
         </div>
         
       </div>

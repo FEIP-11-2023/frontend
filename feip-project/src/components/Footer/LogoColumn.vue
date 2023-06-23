@@ -16,20 +16,20 @@ const links = [
 <template>
     <div class="col column-logo ">
         <div class="d-flex flex-column ">
-            <a href="/">
+            <router-link to="/">
                 <img src="../../assets/footer/LOGO-wite.svg"
                      alt=""
                      class="logo-white ">
-            </a>
+            </router-link>
             <button class="mb-1.5 button__connection btn">
                 СВЯЗАТЬСЯ С НАМИ
             </button>
-            <a v-for="link in links"
+            <router-link v-for="link in links"
                :key="link"
                class="links-item"
-               :href=link.href>
+               :to=link.href>
                 {{ link.name }}
-            </a>
+            </router-link>
 
         </div>
     </div>

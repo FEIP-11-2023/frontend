@@ -59,9 +59,9 @@ const catalog = [
                 <img :src="`/examples/${item.img}.jpg`" alt="" class="card-catalog__img">
             </template>
             <template v-slot:title>
-                <a href="">
+                <router-link to="">
                     {{ item.title }}
-                </a> 
+                </router-link>
             </template>
           </CardMainCatalog>
         </div>

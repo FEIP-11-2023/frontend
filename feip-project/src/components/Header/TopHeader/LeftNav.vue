@@ -13,12 +13,12 @@ const nav = [
 
 <template>
       <div class="left-nav">
-        <a class="element-nav-top align-top text-light "
+        <router-link class="element-nav-top align-top text-light "
            v-for="element in nav"
            :key="element"
-           :href="element.href">
+           :to="element.href">
           {{ element.name }}
-        </a>
+        </router-link>
       </div>
 </template>
 

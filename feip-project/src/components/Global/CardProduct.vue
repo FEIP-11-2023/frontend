@@ -26,7 +26,7 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
 </script>
 
 <template>
-    <a href="/product" class="card-product d-flex flex-column p-1" style="z-index: 1">
+    <router-link to="/product" class="card-product d-flex flex-column p-1" style="z-index: 1">
         <div class="card-product__label text-uppercase">
             <slot name="label"></slot>
         </div>
@@ -65,7 +65,7 @@ const size = ['XS', 'S', 'M', 'L', 'XL']
                 В КОРЗИНУ
             </Button>
         </div> -->
-    </a>
+    </router-link>
 </template>
 
 <style>

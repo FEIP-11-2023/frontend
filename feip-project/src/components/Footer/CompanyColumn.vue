@@ -16,12 +16,12 @@ const links = [
         </div>
         <div class="row">
             <div class="col d-flex flex-column">
-                <a class="links-item "
+                <router-link class="links-item "
                    v-for="item in links"
                    :key="item"
-                   :href=item.href>
+                   :to=item.href>
                     {{ item.name }}
-                </a>
+                </router-link>
             </div>
         </div>
 

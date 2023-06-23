@@ -20,10 +20,10 @@ const images = [
                 <div class="phone_number">
                     +7 (900) 900-90-90
                 </div>
-                <a class="links-item "
-                   href='/'>
+                <router-link class="links-item "
+                   to='/'>
                     sail@mail.com
-                </a>
+                </router-link>
             </div>
             <div class="social-networks p-0 d-flex justify-content-between">
                 <a class="social-networks__link"

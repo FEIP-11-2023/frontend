@@ -74,11 +74,11 @@ const nav = [
         v-for="item in nav"
         :key="item.name"
         >
-        <a
+        <router-link
         
-        href="'/" class="catalog-nav__link text-uppercase">
+        to="/" class="catalog-nav__link text-uppercase">
             {{ item.name }}
-        </a>
+        </router-link>
         </div>
         
     
