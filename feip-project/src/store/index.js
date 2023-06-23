@@ -1,4 +1,4 @@
-import { createStore } from 'vuex';
+import {createStore} from 'vuex';
 import axios from 'axios';
 
 const axiosInstance = axios.create({
@@ -21,8 +21,7 @@ const store = createStore({
   },
   actions: {
     register: (context, payload) => {
-        let promise = axiosInstance.post('/api/v1/auth/register', payload)
-        return promise
+        return axiosInstance.post('/api/v1/auth/register', payload)
     },
     // getallgoods: () => {
 
