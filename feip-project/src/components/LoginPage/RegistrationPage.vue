@@ -59,7 +59,7 @@ const registerUser = () => {
         if (err.response.status !== 422) {
             alert(err.response.data["content"]["message"]["ru"])
         } else {
-            err.response.data["details"].forEach((err) => {
+            err.response.data["detail"].forEach((err) => {
                 set_error(err)
             })
         }
